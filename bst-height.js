@@ -25,7 +25,7 @@ and has 3 links.
 
 const bstHeight = tree => {
   if (!tree) return -1
-  return Math.max(bstHeight(tree.right), bstHeight(tree.left)) + 1
+  return Math.max(bstHeight(tree.left), bstHeight(tree.right)) + 1
 };
 
 const test = new BinarySearchTree(4)
