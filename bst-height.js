@@ -28,6 +28,8 @@ const bstHeight = tree => {
   return Math.max(bstHeight(tree.left), bstHeight(tree.right)) + 1
 };
 
+
+
 const test = new BinarySearchTree(4)
 test.left = new BinarySearchTree(2)
 test.left.left = new BinarySearchTree(1)
