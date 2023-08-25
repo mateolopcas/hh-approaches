@@ -18,9 +18,13 @@ drawStairs(6) ->
 */
 
 const drawStairs = n => {
-  if (n <= 0) return
+  if (n <= 0) {
+    console.log('')
+    return
+  }
   let stairs = ' '.repeat(n)
-  for (let i = 1; i <= n; i++) {
+  console.log(stairs)
+  for (let i = 0; i < n; i++) {
     stairs += '*'
     stairs = stairs.slice(1)
     console.log(stairs)
