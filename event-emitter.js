@@ -27,20 +27,20 @@ Caveats:
 
 
 function EventEmitter() {
-  this.funcNames = []
-  this.funcs = []
+  this.funcs = {}
 }
 
 EventEmitter.prototype.on = function (funcName, func) {
-  this.funcNames.push(funcName)
-  this.funcs.push(func)
+  if (!this.funcs[funcName]) {
+    this.funcs[funcName] = [func]
+  } else {
+    this.funcs[funcName].push(func)
+  }
 };
 
 EventEmitter.prototype.trigger = function (funcName, ...args) {
-  for (let i = 0; i < this.funcNames.length; i++) {
-    if (this.funcNames[i] === funcName) {
-      this.funcs[i](...args)
-    }
+  for (let i = 0; i < this.funcs[funcName].length; i++) {
+    this.funcs[funcName][i](...args)
   }
 };
 
